@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Bem-vindo à ao Brisa & Bebidas</h1>
+<div class="fundo">
+<p>Esta é a página inicial do cliente.</p>
+    <!-- Adicione seu conteúdo personalizado aqui -->
+    
+    {% for cooler in coolers %}
+    <h2>{{ cooler.nome }}</h2>
+        <img src="{{ cooler.fotos.url }}" alt="{{ cooler.nome }}">
+        <p><strong>Preço:</strong> R$ {{ cooler.preco }}</p>
+        <p><strong>Descrição:</strong> {{ cooler.descricao }}</p>
+        <a href="{% url 'detalhes_cooler' cooler.id %}" class="botao">Ver Detalhes</a>
+        {% endfor %}
+    </div>
+
+    <!-- Exemplo de link para a página de criação de pedidos -->
+    <a href="{% url 'criar_pedido' %}" class="botao">Fazer um Pedido</a>
+{% endblock %}

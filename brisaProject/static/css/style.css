@@ -1,0 +1,441 @@
+/* Cores */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Macondo&family=Permanent+Marker&display=swap');
+:root {
+  --cor-azul-claro: #67ada0; /* Azul profundo do mar */
+  --cor-dourado: #ff8000; /* Dourado representando a cerveja gelada */
+  --cor-azul-marinho: #0f2941;
+  --cor-fundo-transparente: rgba(0, 6, 86, 0.72);
+}
+
+/* Estilo para o tema de praia */
+body {
+  background-color: var(--cor-azul-claro);
+  font-family: 'Permanent Marker';
+  margin:10%;
+
+  padding-top: 3px;
+  color:var(--cor-dourado);
+  text-align: center; /* Centraliza todo o conteúdo */
+  font-size: 20px;
+  
+
+}
+h1{
+  font-family: 'Permanent Marker', cursive;
+  color: var(--cor-dourado);
+  text-shadow: 1px 6px 7px var(--cor-azul-marinho);
+
+  letter-spacing: 3px;
+}
+
+a {
+  box-shadow:1px 3px 20px 6px  var(--cor-azul-claro);
+
+  margin: 8px;
+  text-decoration: none;
+  color: var(--cor-azul-marinho);
+  display: inline-block;
+  padding: 5px 10px; /* Ajuste o padding conforme necessário */
+  /* background-color: white; */
+  background: linear-gradient(180deg,var(--cor-azul-marinho),var(--cor-azul-claro) 17%, var(--cor-dourado));
+
+  border-radius: 10px;
+
+  transition: box-shadow 0.85s ease-in-out;
+}
+select{
+  font-size: 30px;
+  height: 50px;
+  max-width: 600px ;
+
+}
+label{
+  font-family: 'Macondo', cursive;
+  font-size: 50px;
+}
+input{
+  font-size: 25px;
+  height: 30px;
+  max-width: 260px ;
+  text-align: right;
+}
+a:hover{
+  background: var(--cor-fundo-transparente); 
+  box-shadow:1px 3px 23px 6px  var(--cor-azul-marinho);
+}
+.inputcard{
+  display: flow;
+
+  background: linear-gradient(180deg, var(--cor-azul-claro), var(--cor-azul-claro) 17%, var(--cor-dourado));
+  text-align: end;
+  border-radius: 15px;
+}
+
+.inputcard p{
+  color: var(--cor-azul-marinho);
+  text-shadow: 5px 1px 1px var(--cor-dourado);
+  padding: 2px;
+  padding-top: 5px;
+  margin-right: 15%;
+  font-size: 25px; ;
+}
+.inputcard ul{
+  color: var(--cor-azul-marinho);
+  align-content: center;
+  text-align: left;
+  padding-right:5px ;
+  padding-top:  40px;
+}
+img{
+  width: 100px;
+  /* border-radius: 50%; */
+
+  /* height: 200px; */
+  padding: 10px 2px;
+  /* box-shadow: 0px 6px 30px 11px var(--cor-azul-marinho); */
+  
+}
+button {
+  font-size: 20px;
+  color: var(--cor-azul-marinho); /* Substitua "--cor-texto" pela sua variável de cor desejada */
+  background: #ffcc00; /* Substitua "--cor-background" pela sua variável de cor desejada */
+  border-radius: 15px;
+  padding: 5px 10px; /* Ajuste o padding conforme necessário */
+  transition: background-color 0.8s ease, color 0.3s ease; /* Adicione uma transição suave para o hover */
+}
+button:hover {
+  background-color: var(--cor-dourado); /* Substitua "--cor-hover" pela sua variável de cor desejada */
+  cursor: pointer;
+}
+
+ul li {
+  list-style: none;
+  transition: background-color 0.5s ease-in-out;
+}
+
+ul li a:hover{
+  background-color: var(--cor-dourado);
+  color: var(--cor-azul-marinho);
+}
+
+.fundo {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: var(--cor-azul-marinho);
+  text-shadow: 1px 1px 1px var(--cor-dourado);
+  border-radius: 15px;
+  margin: 15px;
+  box-shadow: -2px 2px 1px 1px var(--cor-azul-marinho);
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.fundo img {
+  background: none;
+  border-radius: 15px;
+  width: 300px;
+  box-shadow: 1px 1px 20px 3px var(--cor-fundo-transparente);
+}
+
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2px;
+  justify-content: center; /* Centraliza os elementos horizontalmente */
+  align-items: center; /* Centraliza os elementos verticalmente */
+}
+
+
+.header {
+  margin-top: 200px;
+  display: inline-flex; 
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 280px;
+  border-radius: 10px;
+  background-color: var(--cor-dourado);
+  color: var(--cor-azul-marinho);
+  box-shadow:0px 0px 4px 4px var(--cor-azul-marinho);
+}
+
+.header h1 {
+  font-size: 50px;
+  margin: 0;
+  color: var(--cor-azul-marinho);
+  font-family: 'Dancing Script', cursive;
+}
+.navbar {
+  color:var(--cor-dourado);
+  background: linear-gradient(180deg, var(--cor-azul-marinho), var(--cor-azul-claro) 17%, var(--cor-dourado));
+  padding: 10px;
+  border-radius: 64px;
+  box-shadow: 0px 29px 79px 30px var(--cor-dourado);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100% 200%;
+  animation: moveBackground 6s linear infinite alternate; /* 'alternate' para ir e voltar */
+}
+
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  letter-spacing: 1px;
+
+}
+
+.navbar li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.navbar a {
+  background: linear-gradient(to bottom, var(--cor-azul-claro) 0%, var(--cor-azul-marinho) 100%);
+  text-decoration: none;
+  color: var(--cor-dourado);
+  font-weight: bold;
+  margin-left: 34%;
+  transition: margin-left 0.8s ease-in-out, background-color 0.8s ease-in-out; /* Adicione a transição aqui */
+
+}
+.navbar a:hover{
+  background-color: var(--cor-dourado);
+}
+
+.navbar img{
+    border-radius: 25%;
+
+  /* height: 200px; */
+  padding: 10px 2px;
+  box-shadow: 0px 6px 30px 11px var(--cor-azul-marinho);
+
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  max-width: 80%;
+  z-index: 100; /* Isso define a ordem de sobreposição, tornando a barra de navegação acima de outros elementos */
+}
+
+/* Add this CSS for the hamburger button */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: var(--cor-azul-marinho);
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+.menu-open .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-open .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+#navbar-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+.card {
+  background: linear-gradient(180deg, var(--cor-azul-claro), var(--cor-azul-marinho) 40%, var(--cor-azul-claro));
+  font-size: 21px;
+  text-shadow: 1px 1px 1px #120c4e;
+  letter-spacing: 6px;
+  padding: 2% 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card h1 {
+  text-shadow: 4px 10px 7px var(--cor-azul-marinho);
+  letter-spacing: 3px;
+}
+
+.card textarea {
+  border: 2px solid var(--cor-azul-marinho);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  resize: none;
+  margin-top: 10px; /* Adicionado espaço acima do textarea */
+}
+
+.card input {
+  border: 2px solid var(--cor-azul-marinho);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 10%;
+  margin-top: 10px; /* Adicionado espaço acima do input */
+}
+
+.card button {
+  font-family: inherit;
+  background-color: #2ecf28;
+  color: var(--cor-azul-marinho);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 64px;
+  font-size: 18px;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px #fff;
+  margin-top: 10px; /* Adicionado espaço acima do botão */
+  box-shadow: -5px 3px 1px 1px var(--cor-azul-marinho);
+}
+
+.card button:hover {
+  background-color: var(--cor-azul-marinho);
+  color: var(--cor-dourado);
+}
+
+.card label {
+  font-size: 20px;
+  color: var(--cor-azul-marinho);
+  text-shadow: 1px 1px 1px var(--cor-dourado);
+  margin-top: 10px; /* Adicionado espaço acima do label */
+}
+
+.card select {
+  border: 2px solid var(--cor-azul-marinho);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--cor-azul-claro);
+  margin-top: 10px; /* Adicionado espaço acima do select */
+}
+
+.card .error-message {
+  color: red;
+}
+
+.card .success-message {
+  color: green;
+}
+
+
+.content {
+  padding: 20px;
+}
+
+/* Estilo para a lista de mensagens */
+.messages {
+  background-color: var(--cor-fundo-transparente);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.messages ul {
+  list-style: none;
+  padding: 0;
+}
+
+.messages li {
+  margin-bottom: 5px;
+}
+
+/* Estilo para o rodapé */
+.footer {
+  background: linear-gradient(180deg,var(--cor-azul-marinho),var(--cor-azul-claro) 17%, var(--cor-dourado));
+  padding: 10px;
+  text-align: center;
+  color: var(--cor-azul-claro);
+  border-radius: 15px;
+  padding-bottom: 100%;
+}
+
+
+/* Estilo para links no rodapé */
+.footer a {
+  color: var(--cor-azul-marinho);
+  text-decoration: underline;
+}
+
+
+/* Estilizando o botão */
+a .botao {
+  display: inline-block;
+  padding: 10px 20px; /* Ajuste o padding conforme necessário */
+  background-color: white; /* Use a cor dourada definida anteriormente */
+  color: var(--cor-azul-marinho);
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  animation: moveBackground 6s linear infinite alternate; /* 'alternate' para ir e voltar */
+
+  transition: background-color 0.5s ease, ;
+}
+a.botao:hover {
+  background-color: #ffcc00; /* Altera a cor de fundo ao passar o mouse */
+  color: var(--cor-azul-claro);
+}
+
+select #id_cooler {
+
+  border-radius: 15px;
+}
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 24px;
+  }
+  .navbar{
+    margin: auto;
+    width: 100%;
+
+  }
+
+  .fundo img {
+    width: 250px;
+  }  
+
+  a {
+    padding: 5px;
+  }
+
+  select {
+    font-size: 20px;
+    max-width: 100%;
+  }
+
+  textarea{
+    font-size: 20px;
+    max-width: 80%;
+  }
+  
+  .inputcard{
+    width: 100%;
+  }
+
+  input {
+    font-size: 18px;
+    max-width: -webkit-fill-available;
+  }
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 0 100%;
+  }
+  100%{
+  background-position: 0 0;
+
+}

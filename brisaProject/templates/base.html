@@ -1,0 +1,93 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block head_title %}{% endblock head_title %}</title>
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/folium/0.12.1/folium.js"></script>
+        <!-- Adicione os links para o Bootstrap CSS e JavaScript -->
+
+    {% block extra_head %}
+
+    {% endblock extra_head %}
+  </head>
+  <body>
+    <div class="container">
+      {% comment %} navbar {% endcomment %}
+      <div class="navbar fixed-navbar">
+        <a href="{% url 'home_cliente'%}"><img src={% static "img/logo.png"%} alt="logo.png"></a>
+        <ul id="navbar-menu">
+          <li><a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a></li>
+          <li><a href="{% url 'account_email' %}">{% trans "Cadastro" %}</a></li>
+          <li><a href="{% url 'lista_coolers' %}">{% trans "Lista de Cooler" %}</a></li>
+          <li><a href="{% url 'criar_pedido' %}">{% trans "Criar Pedidos" %}</a></li>
+        </ul>
+        <div class="menu-toggle">
+          <div class="hamburger" id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="header">
+        <h1>{% block header_title %}Mar & Brisa{% endblock header_title %}</h1>
+      </div>
+
+      {% block content %}
+      {% endblock content %}
+      {% if messages %}
+      <div class="messages">
+        <strong>{% trans "Messages:" %}</strong>
+        <ul>
+          {% for message in messages %}
+          <li>{{message}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+    <div class="footer">
+      &copy; Nahuan Barreto - {% now "Y" %} ||| <a href="#">Política de Privacidade</a>
+    </div>
+    {% block extra_body %}
+    {% endblock extra_body %}
+    <!-- Seu código HTML anterior aqui -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/folium/0.12.1/folium.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.getElementById("hamburger");
+        const navbarMenu = document.getElementById("navbar-menu");
+        const logoImage = document.querySelector(".navbar img");
+        const navLinks = document.querySelectorAll(".navbar a"); // Seleciona todos os links
+      
+        hamburger.addEventListener("click", function () {
+          if (navbarMenu.style.maxHeight) {
+            navbarMenu.style.maxHeight = null; // Fecha o menu
+            logoImage.style.marginLeft = "auto"; // Centraliza a imagem
+            navLinks.forEach(link => {
+              link.style.marginLeft = "168px"; // Define o margin-left dos links
+            });
+          } else {
+            navbarMenu.style.maxHeight = navbarMenu.scrollHeight + "px"; // Abre o menu
+            logoImage.style.marginLeft = "0"; // Move a imagem para o lado
+            navLinks.forEach(link => {
+              link.style.marginLeft = "0"; // Move os links para o lado
+            });
+          }
+        });
+      });
+      
+    </script>
+  </body>
+</html>
+  

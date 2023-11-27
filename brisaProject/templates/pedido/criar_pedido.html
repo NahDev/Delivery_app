@@ -1,0 +1,64 @@
+<!-- criar_pedido.html no diretório de templates do aplicativo "pedido" -->
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Realizar Pedido</title>
+</head>
+<body>
+    {% block content %}
+    <div class="card">
+
+        <h1><span>Realizar Pedido</span></h1>
+        <div class="fundo">
+
+            <form method="post" id="pedido-form">
+                {% csrf_token %}
+                <p>Escolha seu Kit: {{ form.cooler }}</p>
+                <p>Escolha seu Quantidade: {{ form.quantidade }}</p>
+                <p>Dê detalhes para o entregador: {{ form.descricao }}</p>
+                <p>Coloque ao menos 3 Caracteristicas da sua localização</p>
+                <div id="map" style="width: 100%; height: 400px;"></div>
+                <input type="hidden" id="latitude" name="latitude">
+                <input type="hidden" id="longitude" name="longitude">
+                <button type="submit">Realizar Pedido</button>
+                <div id="map" style="width: 100%; height: 400px;"></div>
+            </form>
+        </div>
+        
+        <script>
+            var map = L.map('map').setView([-24.0042, -46.2670], 13);
+        
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a hASDFref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+        
+            var marker;
+        
+            map.on('dblclick', function(e) {
+                if (marker) {
+                    map.removeLayer(marker);
+                }
+                marker = L.marker(e.latlng, { draggable: true }).addTo(map); // Defina o marcador como "arrastável"
+                document.getElementById('latitude').value = e.latlng.lat;
+                document.getElementById('longitude').value = e.latlng.lng;
+                
+                // Adicione um evento para atualizar as coordenadas ao arrastar o marcador
+                marker.on('dragend', function(event) {
+                    var marker = event.target;
+                    var position = marker.getLatLng();
+                    document.getElementById('latitude').value = position.lat;
+                    document.getElementById('longitude').value = position.lng;
+                });
+            });
+        </script>
+        
+        
+        <!-- Adicione um link de volta à página inicial ou outra página desejada -->
+        <a href="{% url 'home_cliente' %}" class='botao'>Voltar à página inicial</a>
+        
+    </div>
+    {% endblock content %}
+    
+</body>
+</html>

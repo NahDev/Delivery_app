@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Cooler</title>
+</head>
+<body>
+    {% block content %}
+    <div class="card">
+
+            <div class="fundo">
+                <a href="{% url 'criar_pedido' %}" class="botao">Fazer um Pedido</a>
+
+            <h1>{{ cooler.nome }}</h1>
+            <img src="{{ cooler.fotos.url }}" alt="{{ cooler.nome }}">
+            
+            <p><strong>Nome do Cooler:</strong> {{ cooler.nome }}</p>
+            <p><strong>Preço:</strong> R$ {{ cooler.preco }}</p>
+            <p><strong>Descrição:</strong> {{ cooler.descricao }}</p>
+            <a href="{% url 'criar_pedido' %}" class="botao">Fazer um Pedido</a>
+            
+            <h2>Bebidas no Cooler:</h2>
+            <ul>
+                {% for bebida in cooler.itens_cooler.all %}
+                <li>{{ bebida.nome }} {{ bebida.marca}}</li>
+                {% empty %}
+                <li>Nenhuma bebida neste cooler.</li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'criar_pedido' %}" class="botao">Fazer um Pedido</a>
+            
+            <a href="{% url 'lista_coolers' %}">Voltar para a lista de coolers</a>
+        </div>
+    </div>
+    {% endblock content %}
+</body>
+</html>

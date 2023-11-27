@@ -1,0 +1,30 @@
+<!-- confirmacao_pedido.html no diretório de templates do aplicativo "pedido" -->
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmação do Pedido</title>
+</head>
+<body>
+    {% block content %}
+    <div class="fundo">
+
+        <h1>Confirmação do Pedido</h1>
+        <p>Seu pedido foi confirmado com sucesso!</p>
+        
+        <h2>Detalhes do Pedido:</h2>
+        <ul>
+            <li><strong>Cliente:</strong> {{ pedido.cliente.username }}</li>
+            <li><strong>Cooler:</strong> {{ pedido.cooler.nome }}</li>
+            <li><strong>Data do Pedido:</strong> {{ pedido.data_pedido }}</li>
+            <li><strong>Total do Pedido: R$ {{ pedido.calcular_total|floatformat:2 }}</strong></li>
+            
+            <!-- Adicione outros campos do pedido, como quantidade, status, etc., conforme necessário -->
+        </ul>
+        
+        <!-- Link para a página home_cliente -->
+        <a href="{% url 'home_cliente' %}">Ir para a página do cliente</a>
+    </div>
+    {% endblock content %}
+</body>
+</html>

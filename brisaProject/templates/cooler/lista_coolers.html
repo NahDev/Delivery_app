@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Coolers</title>
+</head>
+    <body>
+        {% block content %}
+            
+            <h1>Lista de Coolers</h1>
+            <ul>
+                {% for cooler in coolers %}
+                    <div class="fundo">
+                        <li> 
+                            <a href="{% url 'detalhes_cooler' cooler.id %}">
+                                <img src="{{ cooler.fotos.url }}" alt="{{ cooler.nome }}">
+                            </a>
+                            <p></p>
+                            <a href="{% url 'detalhes_cooler' cooler.id %}">{{ cooler.nome }}</a>
+                            <p>Preço: R$ {{ cooler.preco }}</p>
+                           
+                        </li>                            
+                    </div>
+                    {% empty %}
+                    <li>Nenhum cooler disponível.</li>
+                {% endfor %}
+            </ul>
+        {% endblock content %}
+    </body>
+</html>

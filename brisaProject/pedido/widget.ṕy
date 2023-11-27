@@ -1,0 +1,21 @@
+from django import forms
+from django.contrib.admin.widgets import AdminTextInputWidget
+from django.utils.safestring import mark_safe
+import folium
+
+class FoliumMapWidget(AdminTextInputWidget):
+    def render(self, name, value, attrs=None, renderer=None):
+        if value is not None:
+            location = value
+        else:
+            # Se o valor for None, você pode definir uma localização padrão.
+            location = [-23.5505, -46.6333]  # Por exemplo, São Paulo
+
+        m = folium.Map(location=location, zoom_start=13)
+        marker = folium.Marker(location=location)
+        marker.add_to(m)
+        m.fit_bounds([location, location])
+
+        html = m.get_root().render()
+
+        return mark_safe('<div style="width: 100%; height: 300px;">{}</div>'.format(html))
